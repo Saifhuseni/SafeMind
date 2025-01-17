@@ -16,7 +16,8 @@ const LoginPage = () => {
       const data = await authService.login(formData);
       login(data.token);
     } catch (err) {
-      setErrors(err.response?.data?.message || 'Login failed');
+      // Adjust error handling to reflect correct message from server response
+      setErrors(err.response?.data?.msg || 'Login failed');
     }
   };
 

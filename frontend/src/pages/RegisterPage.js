@@ -10,7 +10,7 @@ const RegisterPage = () => {
     gender: 'Other',
     contact: '',
     bio: '',
-    age: '', 
+    age: '',
   });
   const [errors, setErrors] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
@@ -25,7 +25,8 @@ const RegisterPage = () => {
       await authService.register(formData);
       setSuccessMessage('Registration successful. Please log in.');
     } catch (err) {
-      setErrors(err.response?.data?.message || 'Registration failed');
+      // Ensure error message is correctly extracted
+      setErrors(err.response?.data?.msg || 'Registration failed');
     }
   };
 
@@ -94,7 +95,7 @@ const RegisterPage = () => {
           name="age"
           value={formData.age}
           onChange={onChange}
-          required 
+          required
         />
         <button type="submit">Register</button>
       </form>
