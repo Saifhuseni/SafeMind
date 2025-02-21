@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import authService from '../services/authService';
+import '../css/login.css'; // Assuming you will create this file for LoginPage
 
 const LoginPage = () => {
   const { login } = useContext(AuthContext);
@@ -16,35 +17,39 @@ const LoginPage = () => {
       const data = await authService.login(formData);
       login(data.token);
     } catch (err) {
-      // Adjust error handling to reflect correct message from server response
       setErrors(err.response?.data?.msg || 'Login failed');
     }
   };
 
-  return (
-    <div className="login-container">
-      <h2>Login</h2>
-      {errors && <div className="error">{errors}</div>}
-      <form onSubmit={onSubmit}>
-        <input
-          type="email"
-          placeholder="Email"
-          name="email"
-          value={formData.email}
-          onChange={onChange}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          name="password"
-          value={formData.password}
-          onChange={onChange}
-          required
-        />
-        <button type="submit">Login</button>
-      </form>
-    </div>
+  return (<div>
+    <h2 id="login-heading">Login</h2>
+    <div id="login-page">
+      
+      {errors && <div id="error-message" className="error">{errors}</div>}
+      <div id="login-container" className="login-container">
+        <form id="login-form" onSubmit={onSubmit}>
+          <input
+            id="email-input"
+            type="email"
+            placeholder="Email"
+            name="email"
+            value={formData.email}
+            onChange={onChange}
+            required
+          />
+          <input
+            id="password-input"
+            type="password"
+            placeholder="Password"
+            name="password"
+            value={formData.password}
+            onChange={onChange}
+            required
+          />
+          <button id="login-btn" type="submit">Login</button>
+        </form>
+      </div>
+    </div></div>
   );
 };
 

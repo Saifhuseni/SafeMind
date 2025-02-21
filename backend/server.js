@@ -4,7 +4,7 @@ const morgan = require('morgan');
 const logger = require('./utils/logger');
 const authRoutes = require('./routes/authRoutes');
 const userRoutes = require('./routes/userRoutes');
-
+const testRoutes = require('./routes/testRoutes');  
 const errorMiddleware = require('./middleware/errorMiddleware');
 const cors = require('cors');
 const path = require('path');
@@ -26,6 +26,8 @@ app.use(morgan('dev'));
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api/tests', testRoutes); 
+
 
 // Error handling middleware
 app.use(errorMiddleware);

@@ -1,0 +1,111 @@
+/* General styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 1.5rem;
+    background-color: #66B2B2; /* Teal Blue */
+    color: #F5F5DC; /* Beige */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navbar-logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-logo img {
+    height: 40px;
+    margin-right: 0.5rem;
+  }
+  
+  .navbar-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #F5F5DC; /* Beige */
+  }
+  
+  /* Removed underline from links */
+  .navbar-home-link {
+    text-decoration: none; /* This removes the underline */
+  }
+  
+  .navbar-links {
+    display: flex;
+    list-style: none;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .nav-links li {
+    display: inline;
+  }
+  
+  .nav-links a {
+    text-decoration: none; /* This removes the underline */
+    color: #F5F5DC; /* Beige */
+    font-size: 1rem;
+    transition: color 0.3s;
+  }
+  
+  .nav-links a:hover {
+    color: #DFF6F0; /* Pale Aqua */
+  }
+  
+  .logout-button {
+    background-color: #F5F5DC; /* Beige */
+    color: #333333; /* Charcoal */
+    border: none;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .logout-button:hover {
+    background-color: #DFF6F0; /* Pale Aqua */
+  }
+  
+  /* Mobile menu button */
+  .mobile-menu-button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #F5F5DC;
+    cursor: pointer;
+    display: none;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .nav-links {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  
+    .mobile-menu-button {
+      display: block;
+    }
+  
+    .nav-links.open {
+      display: flex;
+    }
+  }
+  

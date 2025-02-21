@@ -10,9 +10,11 @@ module.exports = (req, res, next) => {
 
   try {
     const decoded = jwt.verify(token, config.get('JWT_SECRET'));
-    req.user = decoded;
-    next();
+    req.user = decoded; // Attach decoded user info to req.user
+    console.log("Decoded user:", decoded);  // Log the decoded user for debugging
+    next(); // Proceed to the next middleware or route handler
   } catch (err) {
+    console.error("Token verification failed:", err); // Log error for debugging
     res.status(401).json({ msg: 'Token is not valid' });
   }
 };
