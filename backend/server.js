@@ -9,7 +9,8 @@ const errorMiddleware = require('./middleware/errorMiddleware');
 const cors = require('cors');
 const path = require('path');
 const dotenv = require('dotenv');
-
+const authMiddleware = require('./middleware/authMiddleware');
+const moodLogRoutes = require('./routes/moodLogRoutes');
 // Load environment variables
 dotenv.config();
 
@@ -44,3 +45,4 @@ if (process.env.NODE_ENV === 'production') {
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => logger.info(`Server running on port ${PORT}`));
+app.use('/api/mood-logs', authMiddleware, moodLogRoutes);
