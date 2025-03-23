@@ -39,7 +39,7 @@ const HomePage = () => {
           </p>
         </div>
         <div className="info-image">
-          <img src="Images/sample.jpg" alt="Mental Well-being" />
+          {/* <img src="images/wellbeing" alt="Mental Well-being" /> */}
         </div>
       </section>
 

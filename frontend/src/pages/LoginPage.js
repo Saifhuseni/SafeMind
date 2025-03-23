@@ -21,36 +21,45 @@ const LoginPage = () => {
     }
   };
 
-  return (<div>
-    <h2 id="login-heading">Login</h2>
-    <div id="login-page">
-      
-      {errors && <div id="error-message" className="error">{errors}</div>}
-      <div id="login-container" className="login-container">
-        <form id="login-form" onSubmit={onSubmit}>
-          <input
-            id="email-input"
-            type="email"
-            placeholder="Email"
-            name="email"
-            value={formData.email}
-            onChange={onChange}
-            required
-          />
-          <input
-            id="password-input"
-            type="password"
-            placeholder="Password"
-            name="password"
-            value={formData.password}
-            onChange={onChange}
-            required
-          />
-          <button id="login-btn" type="submit">Login</button>
-        </form>
+  return (
+    <div className="login-page-wrapper">
+      <div id="login-page">
+        <h2 id="login-heading">Welcome to SafeMind</h2>
+        <p className="tagline">Your personal mental wellness companion</p>
+        
+        {errors && <div id="error-message" className="error">{errors}</div>}
+        <div id="login-container" className="login-container">
+          <form id="login-form" onSubmit={onSubmit}>
+            <div className="form-group">
+              <input
+                id="email-input"
+                type="email"
+                placeholder="Email Address"
+                name="email"
+                value={formData.email}
+                onChange={onChange}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <input
+                id="password-input"
+                type="password"
+                placeholder="Password"
+                name="password"
+                value={formData.password}
+                onChange={onChange}
+                required
+              />
+            </div>
+            <button id="login-btn" type="submit">Sign In</button>
+            <div className="form-footer">
+              <p>Don't have an account? <a href="/register">Create Account</a></p>
+            </div>
+          </form>
+        </div>
       </div>
-    </div></div>
+    </div>
   );
 };
-
 export default LoginPage;

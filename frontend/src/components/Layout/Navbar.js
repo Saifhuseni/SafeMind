@@ -16,7 +16,7 @@ const Navbar = () => {
       <div className="navbar-logo">
         {/* Wrap the logo and title in a Link to navigate to the homepage */}
         <Link to="/" className="navbar-home-link">
-          <img src="/path/to/logo.png" alt="Logo" className="logo" />
+          {/* <img src="/path/to/logo.png" alt="Logo" className="logo" /> */}
           <span className="navbar-title">SafeMind</span>
         </Link>
       </div>
