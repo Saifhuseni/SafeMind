@@ -276,9 +276,10 @@ const HealingPage = () => {
     fetchTestResults();
   }, [token]);
 
-  if (loading) return <p>Loading healing content...</p>;
+  if (loading) return <p>Loading healing content...</p>; 
+   if (testResults.length === 0) return <p>No healing content available.Please take a test to unlock healing content.</p>;
   if (error) return <p style={{ color: 'red' }}>{error}</p>;
-  if (testResults.length === 0) return <p>No healing content available.</p>;
+
 
   return (
     <div style={{ padding: '20px' }}>

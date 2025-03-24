@@ -5,22 +5,20 @@ const bcrypt = require('bcryptjs');
 
 exports.registerUser = async (req, res) => {
   const { username, email, password, name, gender, contact, bio, age } = req.body;
-
+console.log(" register input password is",password)
   try {
-    // Check if user exists
     let user = await User.findOne({ email });
     if (user) {
-      return res.status(400).json({ msg: 'User already exists' }); // Ensures message is sent correctly
+      return res.status(400).json({ msg: 'User already exists' });
     }
 
-    // Hash password before saving
     const hashedPassword = await bcrypt.hash(password, 10);
+    console.log(' register Hashed Password:', hashedPassword);
 
-    // Create new user
     user = new User({
       username,
       email,
-      password: hashedPassword, 
+      password,
       name,
       gender,
       contact,
@@ -28,32 +26,31 @@ exports.registerUser = async (req, res) => {
       age,
     });
 
-    // Save user to database
     await user.save();
 
-    // Generate JWT with user details in the payload
     const payload = {
       userId: user.id,
       username: user.username,
       email: user.email,
     };
+
     const token = jwt.sign(payload, config.get('JWT_SECRET'), { expiresIn: '1h' });
 
     res.status(201).json({
       token,
       user: {
         id: user.id,
-        username,
-        email,
-        name,
-        gender,
-        contact,
-        bio,
-        age,
+        username: user.username,
+        email: user.email,
+        name: user.name,
+        gender: user.gender,
+        contact: user.contact,
+        bio: user.bio,
+        age: user.age,
       },
     });
   } catch (err) {
-    console.error(err.message);
+    console.error('Register Error:', err.message);
     res.status(500).send('Server Error');
   }
 };
@@ -62,20 +59,29 @@ exports.loginUser = async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    // Check if user exists
     const user = await User.findOne({ email });
-    if (!user) return res.status(400).json({ msg: 'Invalid Credentials' });
 
-    // Check password
+    if (!user) {
+      console.log('User not found with email:', email);
+      return res.status(400).json({ msg: 'Invalid Credentials' });
+    }
+
+    console.log('Stored Hashed Password:', user.password);
+    console.log('Entered Password:', password);
+
     const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) return res.status(400).json({ msg: 'Invalid Credentials' });
+    console.log('Password Match:', isMatch);
 
-    // Generate JWT with user details in the payload
+    if (!isMatch) {
+      return res.status(400).json({ msg: 'Invalid Credentials' });
+    }
+
     const payload = {
       userId: user.id,
       username: user.username,
       email: user.email,
     };
+
     const token = jwt.sign(payload, config.get('JWT_SECRET'), { expiresIn: '1h' });
 
     res.json({
@@ -92,7 +98,7 @@ exports.loginUser = async (req, res) => {
       },
     });
   } catch (err) {
-    console.error(err.message);
+    console.error('Login Error:', err.message);
     res.status(500).send('Server Error');
   }
 };
