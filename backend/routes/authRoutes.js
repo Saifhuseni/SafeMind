@@ -3,6 +3,7 @@ const router = express.Router();
 const { registerUser, loginUser } = require('../controllers/authController');
 const { check, validationResult } = require('express-validator');
 
+// Registration Route
 router.post(
   '/register',
   [
@@ -26,17 +27,19 @@ router.post(
   }
 );
 
+// Login Route
 router.post(
   '/login',
   [
-    check('email', 'Please include a valid email').isEmail(),
+    // We check if it's an email or username. We only need to check the presence for email here.
+    check('email', 'Please include a valid email or username').exists(),
     check('password', 'Password is required').exists(),
   ],
   (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) return res.status(400).json({ errors: errors.array() });
 
-    loginUser(req, res);
+    loginUser(req, res); // If validation passes, call loginUser from controller
   }
 );
 

@@ -31,11 +31,11 @@ const LoginPage = () => {
         <div id="login-container" className="login-container">
           <form id="login-form" onSubmit={onSubmit}>
             <div className="form-group">
-              <label htmlFor="email-input">Email Address</label>
+              <label htmlFor="email-input">Email or Username</label>
               <input
                 id="email-input"
-                type="email"
-                placeholder="Email Address"
+                type="text"
+                placeholder="Email Address or Username"
                 name="email"
                 value={formData.email}
                 onChange={onChange}
