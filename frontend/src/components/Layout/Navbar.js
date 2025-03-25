@@ -27,6 +27,7 @@ const Navbar = () => {
             <li><Link to="/dashboard">Dashboard</Link></li>
             <li><Link to="/testpage">Test</Link></li>
             <li><Link to="/healing">Healing</Link></li>
+            <li><Link to="/profile">Profile</Link></li> {/* Profile link added */}
             <li><button onClick={logout} className="logout-button">Logout</button></li>
           </ul>
         ) : (

@@ -84,18 +84,6 @@ const RegisterPage = () => {
                 />
               </div>
               <div>
-                <label htmlFor="email-input">Email *</label>
-                <input
-                  id="email-input"
-                  type="email"
-                  placeholder="abc@abc.com"
-                  name="email"
-                  value={formData.email}
-                  onChange={onChange}
-                  required
-                />
-              </div>
-              <div>
                 <label htmlFor="password-input">Password *</label>
                 <input
                   id="password-input"
@@ -108,6 +96,19 @@ const RegisterPage = () => {
                   minLength="6"
                 />
               </div>
+              <div>
+                <label htmlFor="email-input">Email *</label>
+                <input
+                  id="email-input"
+                  type="email"
+                  placeholder="abc@abc.com"
+                  name="email"
+                  value={formData.email}
+                  onChange={onChange}
+                  required
+                />
+              </div>
+              
               <div>
                 <label htmlFor="name-input">Full Name *</label>
                 <input

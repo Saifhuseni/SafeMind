@@ -10,6 +10,8 @@ import Navbar from './components/Layout/Navbar'; // Import Navbar
 import TestPage from './pages/TestPage'; // Ensure TestPage is imported
 import TestResult from './pages/TestResult';
 import HealingPage from './pages/HealingPage';
+import ProfilePage from './pages/ProfilePage'; // Import the ProfilePage component
+
 const App = () => (
   <AuthProvider>
     <Navbar /> {/* Navbar will appear across all pages */}
@@ -25,7 +27,7 @@ const App = () => (
           </PrivateRoute>
         }
       />
-       <Route path="/testresult/:resultId" element={<TestResult />} />
+      <Route path="/testresult/:resultId" element={<TestResult />} />
       <Route
         path="/testpage"
         element={
@@ -33,10 +35,8 @@ const App = () => (
             <TestPage />
           </PrivateRoute>
         }
-        
-      /> 
-      
-     <Route
+      />
+      <Route
         path="/healing"
         element={
           <PrivateRoute>
@@ -44,11 +44,15 @@ const App = () => (
           </PrivateRoute>
         }
       />
-
-
+      <Route
+        path="/profile"
+        element={
+          <PrivateRoute>
+            <ProfilePage /> {/* Add ProfilePage route */}
+          </PrivateRoute>
+        }
+      />
     </Routes>
-
-    
   </AuthProvider>
 );
 
