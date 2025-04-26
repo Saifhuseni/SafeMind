@@ -50,7 +50,26 @@ SafeMind is developed using a wide range of technologies to ensure performance, 
 
 ## 📷 Screenshots
 
-*(Add screenshots of the Home Page, Tests Page, Mood Logger, and Results Dashboard here)*
+**Homepage**  
+![Homepage](https://github.com/Saifhuseni/SafeMind/blob/main/frontend/Pics/Homepage.png?raw=true)
+
+**Login Page**  
+![Login Page](https://github.com/Saifhuseni/SafeMind/blob/main/frontend/Pics/LoginPage.png?raw=true)
+
+**Dashboard**  
+![Dashboard](https://github.com/Saifhuseni/SafeMind/blob/main/frontend/Pics/Dashboard.png?raw=true)
+
+**Test Page**  
+![Dashboard](https://github.com/Saifhuseni/SafeMind/blob/main/frontend/Pics/Test.png?raw=true)
+
+**Test  taking Page**  
+![Dashboard](https://github.com/Saifhuseni/SafeMind/blob/main/frontend/Pics/Testtakingpage.png?raw=true)
+
+**Test  Result Page**  
+![Dashboard](https://github.com/Saifhuseni/SafeMind/blob/main/frontend/Pics/TestResultPage.png?raw=true)
+
+**Healing Page**  
+![Dashboard](https://github.com/Saifhuseni/SafeMind/blob/main/frontend/Pics/Healingpage.png?raw=true)
 
 ---
 
