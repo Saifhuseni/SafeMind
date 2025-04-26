@@ -204,11 +204,14 @@ const Dashboard = () => {
         },
       },
       y: {
-        min: 1, // Fix the minimum value of Y-axis
+        min: 0, // Fix the minimum value of Y-axis
         max: 7, // Fix the maximum value of Y-axis
         ticks: {
           font: { size: 14, weight: "bold" },
-          callback: (value) => Object.keys(moodMapping).find((key) => moodMapping[key] === value) || value, // Convert numbers back to mood names
+          callback: (value) => {
+            if (value === 0) return ""; 
+            return Object.keys(moodMapping).find((key) => moodMapping[key] === value) || value;
+          },
         },
       },
     },

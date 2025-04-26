@@ -277,8 +277,18 @@ const HealingPage = () => {
   }, [token]);
 
   if (loading) return <p>Loading healing content...</p>; 
-   if (testResults.length === 0) return <p>No healing content available.Please take a test to unlock healing content.</p>;
-  if (error) return <p style={{ color: 'red' }}>{error}</p>;
+   if (testResults.length === 0) return <div style={{
+    display: 'flex', 
+    justifyContent: 'center', 
+    alignItems: 'center', 
+    height: '100vh', 
+    textAlign: 'center'
+  }}>
+    <p>
+      No personalised recommendations available.<br />
+      Please take a test to unlock healing content. You can find the standardised tests in the tests section.
+    </p>
+  </div>;
 
 
   return (
