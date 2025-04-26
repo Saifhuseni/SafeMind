@@ -1,4 +1,4 @@
-# 🧐 SafeMind - Mental Health Awareness & Self-Care Platform
+#  SafeMind : A Safe Space for your mental health, A companion for your mental well-being.
 
 SafeMind is a full-stack web application aimed at promoting mental health awareness and providing users with tools for self-assessment, emotional tracking, and access to helpful resources. Designed to be simple, secure, and user-friendly, SafeMind empowers users to better understand and manage their mental health through a data-driven and accessible platform.
 
